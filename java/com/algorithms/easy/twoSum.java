@@ -7,29 +7,14 @@ public class twoSum {
         /*
         Take an array of integers, return the index of 2 numbers sum to the target
          */
-
-        //sort the array
-        Arrays.sort(nums);
-
-        int left = 0;
-        int right = nums.length - 1;
-        int sum = 0;
-
-        while (left < right) {
-            sum = nums[left] + nums[right];
-            if (sum == target) {
-                return new int[]{left, right};
-            }
-            else if (sum > target) {
-                right--;
-            }
-            else if (sum < target) {
-                left++;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    return new int[]{i, j};
+                }
             }
         }
-
-        return new int[]{-1, -1};
-
+        throw new IllegalArgumentException("No solution");
     }
 
     public static void main(String[] args) {
