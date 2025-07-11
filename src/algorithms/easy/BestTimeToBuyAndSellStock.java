@@ -1,30 +1,40 @@
 package algorithms.easy;
 
 public class BestTimeToBuyAndSellStock {
+    /**
+     * Calculates the maximum profit that can be achieved by buying a stock on one day
+     * and selling it on a future day.
+     * <p>
+     * This method iterates through the prices in a single pass, keeping track of the
+     * lowest price found so far, and the maximum profit possible.
+     *
+     * @param prices An array of integers representing the stock price on consecutive days.
+     * The array must not be empty.
+     * @return The maximum possible profit. Returns 0 if no profit can be made.
+     */
 
     public int maxProfit(int[] prices) {
 
-        int lowPrice = prices[0];
-        int highPrice = prices[1];
 
-        for (int i = 1; i < prices.length; i++) {
-            if (lowPrice > prices[i]) {
-                lowPrice = prices[i];
+        int maxProfit = -1;
+        int minPrice = prices[0];
+
+        for (int price : prices) {
+            if (price < minPrice){
+                minPrice = price;
             }
 
-            if (highPrice < prices[i]) {
-                highPrice = prices[i];
+            else if (price - minPrice > maxProfit){
+                maxProfit = price - minPrice;
             }
         }
 
-        int maxProfit = highPrice - lowPrice;
-
-        return Math.max(maxProfit, 0);
+        return maxProfit;
 
     }
 
     public static void main(String[] args) {
-        int[] prices = {7, 1, 5, 3, 6, 4};
+        int[] prices = {7, 6, 4, 3, 1};
         System.out.println(new BestTimeToBuyAndSellStock().maxProfit(prices));
 
     }
