@@ -1,8 +1,8 @@
-package com.algorithms.easy;
+package algorithms.easy;
 
 import java.util.Arrays;
 
-public class twoSum {
+public class TwoSum {
     public int[] twoSum(int[] nums, int target) {
         /*
         Take an array of integers, return the index of 2 numbers sum to the target
@@ -21,7 +21,7 @@ public class twoSum {
         int[] nums = {2, 7, 11, 15};
         int target = 9;
 
-        twoSum solution = new twoSum();
+        TwoSum solution = new TwoSum();
 
         int[] result = solution.twoSum(nums, target);
         System.out.println(Arrays.toString(result));
