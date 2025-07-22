@@ -16,10 +16,26 @@ public class RomanToInt {
 
         char[] chars = s.toCharArray();
         Integer sum = 0;
+        Integer previous = null;
+        Integer index = 0;
 
-        for (char c : chars) {
-            sum += dict.get(c);
+        while (index < chars.length) {
+            Integer current = dict.get(chars[index]);
+            if (previous == null) {
+                previous = current;
+            }
+            else if (previous < current) {
+                sum += -previous + current;
+                previous = null;
+            }
+            else if (previous > current) {
+                sum += previous;
+                previous = current;
+            }
+
+            index++;
         }
+
 
         return sum;
 
@@ -27,7 +43,7 @@ public class RomanToInt {
 
     public static void main(String[] args) {
         RomanToInt romanToInt = new RomanToInt();
-        System.out.println(romanToInt.romanToInt("III"));
+        System.out.println(romanToInt.romanToInt("MCMXCIV"));
     }
 
 }
