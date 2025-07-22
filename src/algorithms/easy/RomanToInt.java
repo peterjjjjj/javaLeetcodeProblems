@@ -14,36 +14,31 @@ public class RomanToInt {
         dict.put('D', 500);
         dict.put('M', 1000);
 
-        char[] chars = s.toCharArray();
-        Integer sum = 0;
-        Integer previous = null;
-        Integer index = 0;
+        int totalSum = 0;
+        int prevValue = 0;
 
-        while (index < chars.length) {
-            Integer current = dict.get(chars[index]);
-            if (previous == null) {
-                previous = current;
-            }
-            else if (previous < current) {
-                sum += -previous + current;
-                previous = null;
-            }
-            else if (previous > current) {
-                sum += previous;
-                previous = current;
+        for (int i = s.length() - 1; i >= 0; i--) {
+            char currentChar = s.charAt(i);
+            int currentValue = dict.get(currentChar);
+
+            if (currentValue < prevValue) {
+                totalSum -= currentValue;
+            } else {
+                totalSum += currentValue;
             }
 
-            index++;
+            prevValue = currentValue;
         }
 
 
-        return sum;
+
+        return totalSum;
 
     }
 
     public static void main(String[] args) {
         RomanToInt romanToInt = new RomanToInt();
-        System.out.println(romanToInt.romanToInt("MCMXCIV"));
+        System.out.println(romanToInt.romanToInt("III"));
     }
 
 }
