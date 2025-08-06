@@ -8,15 +8,15 @@ public class RemoveElement {
         //Return the number of elements in nums which are not equal to val.
 
         //Initialize k.
-        int k = 0;
+        int k = nums.length;
 
         for (int i = 0; i < nums.length; i++) {
             //Found the target val.
             if (nums[i] == val) {
                 //Set it to 101.
                 nums[i] = 101;
-                //Increment.
-                k++;
+                //Decrement.
+                k--;
             }
         }
 
@@ -28,7 +28,7 @@ public class RemoveElement {
     public static void main(String[] args) {
         RemoveElement removeElement = new RemoveElement();
 
-        int[] nums = {3, 2, 2, 3};
+        int[] nums = {0,1,2,2,3,0,4,2};
         int val = 2;
 
         System.out.println(removeElement.removeElement(nums, val));
