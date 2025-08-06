@@ -1,5 +1,7 @@
 package algorithms.easy;
 
+import java.util.Arrays;
+
 public class RemoveElement {
     public int removeElement(int[] nums, int val) {
         //Given an int array nums, int val, remove all occurrences of val in nums in place.
@@ -11,12 +13,14 @@ public class RemoveElement {
         for (int i = 0; i < nums.length; i++) {
             //Found the target val.
             if (nums[i] == val) {
-                //Set it to -1.
-                nums[i] = -1;
+                //Set it to 101.
+                nums[i] = 101;
                 //Increment.
                 k++;
             }
         }
+
+        Arrays.sort(nums);
 
         return k;
     }
