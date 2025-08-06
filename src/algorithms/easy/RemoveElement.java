@@ -5,11 +5,15 @@ public class RemoveElement {
         //Given an int array nums, int val, remove all occurrences of val in nums in place.
         //Return the number of elements in nums which are not equal to val.
 
+        //Initialize k.
         int k = 0;
 
         for (int i = 0; i < nums.length; i++) {
+            //Found the target val.
             if (nums[i] == val) {
+                //Set it to -1.
                 nums[i] = -1;
+                //Increment.
                 k++;
             }
         }
