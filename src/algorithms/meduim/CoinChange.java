@@ -15,7 +15,7 @@ public class CoinChange {
             }
         }
 
-        if( dp[amount] == 0) {
+        if( dp[amount] == Integer.MAX_VALUE) {
             return -1;
         }
 
