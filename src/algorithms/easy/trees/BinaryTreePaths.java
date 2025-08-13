@@ -1,32 +1,24 @@
-package algorithms.easy;
+package algorithms.easy.trees;
 
-import javax.swing.tree.TreeNode;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class BinaryTreePaths {
-    int value;
-    BinaryTreePaths left;
-    BinaryTreePaths right;
 
-    public BinaryTreePaths(int value) {
-        this.value = value;
-        this.left = null;
-        this.right = null;
-    }
+    public
+
 
     List<Integer> currentPath = new ArrayList<>();
     List<String> allPaths = new ArrayList<>();
 
-    public List<String> TreePath(BinaryTreePaths root) {
+    public List<String> TreePath(TreeNode root) {
 
         dfs(root);
         return allPaths;
     }
 
-    public void dfs(BinaryTreePaths root) {
+    public void dfs(TreeNode root) {
 
         if (root == null) {
             return;
@@ -48,10 +40,15 @@ public class BinaryTreePaths {
     }
 
     public static void main(String[] args) {
-        BinaryTreePaths tree = new BinaryTreePaths(1);
-        tree.left = new BinaryTreePaths(2);
-        tree.right = new BinaryTreePaths(3);
-        System.out.println(tree.TreePath(tree));
+        TreeNode root = new TreeNode(1);
+
+        // Assign its children, which must also be TreeNode objects
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+
+        System.out.println(new BinaryTreePaths().TreePath(root));
     }
 
 
