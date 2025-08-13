@@ -29,6 +29,7 @@ public class BinaryTreePaths {
             String pathString = currentPath.stream().
                     map(String::valueOf).
                     collect(Collectors.joining("->"));
+
             allPaths.add(pathString);
 
         }
@@ -44,7 +45,7 @@ public class BinaryTreePaths {
 
         // Assign its children, which must also be TreeNode objects
         root.left = new TreeNode(2);
-        root.right = new TreeNode(3);
+        root.assignRight(new TreeNode(3));
         root.left.left = new TreeNode(4);
         root.left.right = new TreeNode(5);
 

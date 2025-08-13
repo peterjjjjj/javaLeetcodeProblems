@@ -11,5 +11,13 @@ public class TreeNode {
         this.right = null;
     }
 
+    public void assignLeft(TreeNode left) {
+        this.left = left;
+    }
+
+    public void assignRight(TreeNode right) {
+        this.right = right;
+    }
+
 
 }
