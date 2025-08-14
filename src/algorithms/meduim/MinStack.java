@@ -1,4 +1,4 @@
-package algorithms.easy;
+package algorithms.meduim;
 
 import java.util.Stack;
 
